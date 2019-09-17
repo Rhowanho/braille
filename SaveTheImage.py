@@ -101,7 +101,7 @@ def ResizeTomax(files,x_min,y_min,x_size,y_size):
 
 def ImageMerge(file_list,x_size,y_size,x_min,y_min,Name):
     
-    path = "./static/image/"
+    path = "/home/ubuntu/braille/static/image/"
     FileName= Name
     TypeOf = ".PNG"
 
@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
 
 def SaveImage(list):
-    target_dir="./BR_image/test/"
+    target_dir="/home/ubuntu/braille/BR_image/test/"
     
     files = []
     
