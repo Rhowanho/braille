@@ -17,7 +17,7 @@ def index():
         print(Braille)
         FileName = ''.join(Braille)
         RealFileName = FileName[0:89]
-        path = "image/"
+        path = "./static/image/"
         TypeOf = ".PNG"
 
 
