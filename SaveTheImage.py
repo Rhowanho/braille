@@ -160,10 +160,10 @@ def SaveImage(list):
         s = 0
         f = 6
         if len(i) == 6:
-            files.append(target_dir+i+".png")
+            files.append(target_dir+i+".PNG")
         else:
             for x in range(len(i)//6):
-                files.append(target_dir+i[s:f]+".png")
+                files.append(target_dir+i[s:f]+".PNG")
                 s = s + 6
                 f = f + 6
 
