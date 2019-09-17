@@ -101,7 +101,7 @@ def ResizeTomax(files,x_min,y_min,x_size,y_size):
 
 def ImageMerge(file_list,x_size,y_size,x_min,y_min,Name):
     
-    path = "C:/Users/tjaud/Documents/motor/Flask/static/image/"
+    path = "./static/image/"
     FileName= Name
     TypeOf = ".PNG"
 
