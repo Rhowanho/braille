@@ -7,6 +7,6 @@ def TTS(String):
     tts.save('/home/ubuntu/braille/Speech/' + FileName)
 
 def Playing(str):
-    mixer.init()
+    mixer.init(allowedchanges = 0)
     mixer.music.load('/home/ubuntu/braille/Speech/' + str +".mp3")
     mixer.music.play()
