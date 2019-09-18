@@ -1,5 +1,10 @@
-from pygame import mixer
+import pygame
 from gtts import gTTS
+
+freq = 24000
+bitsize = -16
+channels = 2
+buffer = 4096
 
 def TTS(String):
     FileName = str(String) + ".mp3"
@@ -7,6 +12,6 @@ def TTS(String):
     tts.save('/home/ubuntu/braille/Speech/' + FileName)
 
 def Playing(str):
-    mixer.init(allowedchanges = 0)
-    mixer.music.load('/home/ubuntu/braille/Speech/' + str +".mp3")
-    mixer.music.play()
+    pygame.mixer.init(freq, bitsize, channels, buffer)
+    pygame.mixer.music.load('/home/ubuntu/braille/Speech/' + str +".mp3")
+    pygame.mixer.music.play()
