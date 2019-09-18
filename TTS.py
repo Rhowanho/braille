@@ -12,10 +12,11 @@ def TTS(String):
     tts.save('/home/ubuntu/braille/Speech/' + FileName)
 
 def Playing(str):
+    pygame.init()
     pygame.mixer.init(freq, bitsize, channels, buffer)
     pygame.mixer.music.load('/home/ubuntu/braille/Speech/' + str +".mp3")
     pygame.mixer.music.play()
     clock = pygame.time.Clock()
     while pygame.mixer.music.get_busy():
         clock.tick(30)
-    pygame.mixer.quit()
+    pygame.mixer.music.stop()
