@@ -4,7 +4,7 @@ from gtts import gTTS
 freq = 24000
 bitsize = -16
 channels = 2
-buffer = 4096
+buffer = 512
 
 def TTS(String):
     FileName = str(String) + ".mp3"
@@ -15,3 +15,7 @@ def Playing(str):
     pygame.mixer.init(freq, bitsize, channels, buffer)
     pygame.mixer.music.load('/home/ubuntu/braille/Speech/' + str +".mp3")
     pygame.mixer.music.play()
+    clock = pygame.time.Clock()
+    while pygame.mixer.music.get_busy():
+        clock.tick(30)
+    pygame.mixer.quit()
