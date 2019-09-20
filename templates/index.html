@@ -260,7 +260,7 @@
                   <button style="font-family: 'Nanum Barun Gothic' !important;" type="submit" class="btn btn-success btn-md align-items-right">음성 변환</button>
                   {% if True %}
                     <audio controls>
-                      <source src = "{{ url_for('Speech', filename = voice)}}" type="audio/mp3">
+                      <source src = "{{ url_for('Speech')}}" type="audio/mp3">
                     </audio>
                   {% endif %}
                 </div>
