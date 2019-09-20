@@ -9,7 +9,7 @@ buffer = 512
 def TTS(String):
     FileName = str(String) + ".mp3"
     tts = gTTS(text=String, lang='ko')
-    tts.save('/home/ubuntu/braille/static/speech' + FileName)
+    tts.save('/home/ubuntu/braille/static/speech/' + FileName)
 
 def Playing(str):
     pygame.init()
