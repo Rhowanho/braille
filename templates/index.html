@@ -262,9 +262,9 @@
               </form>
               {% if True %}
                     <audio controls>
-                      <source src = "{{ url_for('Speech', filename = voice)}}" type="audio/mp3">
+                      <source src = "{{ url_for('static', filename = speech)}}" type="audio/mp3">
                     </audio>
-                {% endif %}
+              {% endif %}
           </div>
           <!--/Grid column-->
 
