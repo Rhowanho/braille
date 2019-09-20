@@ -258,12 +258,13 @@
                   <label style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">음성 출력 문장</label>
                   <input style="font-family: 'Nanum Barun Gothic'" type="text" name="mp3" class="form-control" id="formGroupExampleInput" placeholder="음성으로 출력할 문장을 입력하시오">
                   <button style="font-family: 'Nanum Barun Gothic' !important;" type="submit" class="btn btn-success btn-md align-items-right">음성 변환</button>
-                  {% if True %}
-                    <audio controls>
-                      <source src = "{{ url_for('Speech')}}" type="audio/mp3">
-                    </audio>
-                  {% endif %}
+
                 </div>
+                {% if True %}
+                    <audio controls>
+                      <source src = "{{ url_for('Speech', filename = voice)}}" type="audio/mp3">
+                    </audio>
+                {% endif %}
               </form>
           </div>
           <!--/Grid column-->
