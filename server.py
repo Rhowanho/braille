@@ -55,10 +55,10 @@ def gTTS():
     if request.method == 'POST':
         String= str(request.form['mp3'])
         # 파라미터를 전달 받습니다.
-
+        #Mp3FileName = str(String) + ".mp3"
         TTS.TTS(String)
-        TTS.Playing(String)
+        #TTS.Playing(String)
         #os.remove('C:/Users/tjaud/Documents/motor/Flask/Speech/'+String+'.mp3') 
-        return render_template('index.html')
+        return render_template('index.html', voice = String + ".mp3")
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
