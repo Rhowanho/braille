@@ -277,8 +277,9 @@ def cho(text, lst) :
 def cho_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     #print(lst)
+    err_lst = []
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
-        err_lst = []
+        
         word = ""
         
         err = str(text[lst[e]]) # 다음 반복문을 위함
@@ -735,9 +736,10 @@ def jung(text, lst) :
     return err_lst
 
 def jung_upgrade(text, lst) :
+    err_lst = []
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
-        err_lst = []
+        
         word = ""
         
         err = str(text[lst[e]]) # 다음 반복문을 위함
@@ -1170,9 +1172,9 @@ def jong(text, lst) :
 
 def jong_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-
+    err_lst = []
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
-        err_lst = []
+        
         word = ""
         
         err = str(text[lst[e]]) # 다음 반복문을 위함
