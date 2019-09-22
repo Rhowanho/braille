@@ -69,7 +69,7 @@ def nouns_case (text) :
                 app1 += test1[k]
             n.append(app1)
 
-    f = open("체언_상세.txt", 'r', encoding='utf-16')
+    f = open("체언_상세.txt", 'r', encoding='utf-8')
     n_data = f.read()
     count = 0
     
