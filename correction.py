@@ -7,7 +7,7 @@
 # 함수 매개변수 지정하여 호환 잘 되도록 수정
 
 from konlpy.tag import *
-
+# -*- coding: utf-8 -*-
 hannanum = Hannanum()
 
 import re
@@ -69,7 +69,7 @@ def nouns_case (text) :
                 app1 += test1[k]
             n.append(app1)
 
-    f = open("체언_상세.txt", 'r')
+    f = open("체언_상세.txt", 'r', encoding='utf-16')
     n_data = f.read()
     count = 0
     
