@@ -52,12 +52,19 @@ def FIX():
         jung = correction.jung(correction_text, lst)
         jong = correction.jong(correction_text, lst)
         err_chea = cho + jung + jong
-        if (cho_up = correction.cho_upgrade(correction_text, lst)) != 1 :
-            jung_up = correction.jung_upgrade(correction_text, lst)
-            if (jung_up = correction.jung_upgrade(correction_text, lst)) != 1 :
-                jong_up = correction.jong_upgrade(correction_text, lst)
-        err_up_chea = cho_up + jung_up + jong_up
-        return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea chea_up_error = err_up_chea )
+        
+        cho_up = correction.cho_upgrade(correction_text, lst)
+        jung_up = correction.jung_upgrade(correction_text, lst)
+        jong_up = correction.jong_upgrade(correction_text, lst)
+
+        err_up_chea = cho
+        
+        if len(cho_up) != 1 :
+            err_up_chea += jung_up
+            if len(jung_up) != 1 :
+                err_up_chea += jong_up
+
+        return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
 
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():
