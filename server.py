@@ -1,5 +1,5 @@
 ﻿from flask import Flask, render_template, request
-import Han2B , B2Han, SaveTheImage, TTS
+import Han2B , B2Han, SaveTheImage, TTS, correction
 import os
 import shutil
 app = Flask(__name__)
@@ -44,9 +44,20 @@ def FIX():
     if request.method == 'GET':
         return render_template('index.html')
     if request.method == 'POST':
-    
-        
-        return render_template('index.html')
+        target_text = str(request.form['FIX'])
+        lst = correction.nouns_case(target_text)
+        num_error = len(lst)
+        correction_text = correction.nouns(target_text)
+        cho = correction.cho(correction_text, lst)
+        jung = correction.jung(correction_text, lst)
+        jong = correction.jong(correction_text, lst)
+        err_chea = cho + jung + jong
+        if (cho_up = correction.cho_upgrade(correction_text, lst)) != 1 :
+            jung_up = correction.jung_upgrade(correction_text, lst)
+            if (jung_up = correction.jung_upgrade(correction_text, lst)) != 1 :
+                jong_up = correction.jong_upgrade(correction_text, lst)
+        err_up_chea = cho_up + jung_up + jong_up
+        return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea chea_up_error = err_up_chea )
 
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():
