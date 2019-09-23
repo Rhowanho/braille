@@ -52,16 +52,17 @@ def FIX():
         jung = correction.jung(correction_text, lst)
         jong = correction.jong(correction_text, lst)
         err_chea = cho + jung + jong
-        
-        cho_up = correction.cho_upgrade(correction_text, lst)
-        jung_up = correction.jung_upgrade(correction_text, lst)
-        jong_up = correction.jong_upgrade(correction_text, lst)
 
-        err_up_chea = cho
+        lst_up = correction.case_up(correction_text, lst)
+
+        cho_up = correction.cho_upgrade(correction_text, lst_up)
+        err_up_chea = cho_up
         
-        if len(cho_up) != 1 :
+        if cho_up != 1 :
+            jung_up = correction.jung_upgrade(correction_text, lst_up)
             err_up_chea += jung_up
-            if len(jung_up) != 1 :
+            if jung_up != 1 :
+                jong_up = correction.jong_upgrade(correction_text, lst_up)
                 err_up_chea += jong_up
 
         return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
