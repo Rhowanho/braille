@@ -204,10 +204,10 @@ def cho(text, lst) :
                         ch11 = 15
                         check = 1
                     if ch1 == 17 and check == 0 and q == 26 : # ㅍ ㅌ
-                        ch11 = 6
+                        ch11 = 16
                         check = 1
                     if ch1 == 17 and check == 0 and q == 27 : # ㅍ ㅎ
-                        ch11 = 6
+                        ch11 = 18
                         check = 1
                     
                     if ch1 == 18 and check == 0 and q == 28 : # ㅎ ㅋ
@@ -409,10 +409,10 @@ def cho_upgrade(text, lst) :
                             ch11 = 15
                             check = 1
                         if ch1 == 17 and check == 0 and q == 26 : # ㅍ ㅌ
-                            ch11 = 6
+                            ch11 = 16
                             check = 1
                         if ch1 == 17 and check == 0 and q == 27 : # ㅍ ㅎ
-                            ch11 = 6
+                            ch11 = 18
                             check = 1
                         
                         if ch1 == 18 and check == 0 and q == 28 : # ㅎ ㅋ
@@ -1467,10 +1467,10 @@ def cho_filter(text, lst) :
                         ch11 = 15
                         check = 1
                     if ch1 == 17 and check == 0 and q == 26 : # ㅍ ㅌ
-                        ch11 = 6
+                        ch11 = 16
                         check = 1
                     if ch1 == 17 and check == 0 and q == 27 : # ㅍ ㅎ
-                        ch11 = 6
+                        ch11 = 18
                         check = 1
                     
                     if ch1 == 18 and check == 0 and q == 28 : # ㅎ ㅋ
