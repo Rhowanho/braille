@@ -47,6 +47,7 @@ def FIX():
         target_text = str(request.form['FIX'])
         lst = correction.nouns_case(target_text)
         num_error = len(lst)
+        correction.word_upgrade = []
         correction_text = correction.nouns(target_text)
         cho = correction.cho(correction_text, lst)
         jung = correction.jung(correction_text, lst)
@@ -56,14 +57,13 @@ def FIX():
         lst_up = correction.case_up(correction_text, lst)
 
         cho_up = correction.cho_upgrade(correction_text, lst_up)
-        err_up_chea = cho_up
-        
+
         if cho_up != 1 :
-            jung_up = correction.jung_upgrade(correction_text, lst_up)
-            err_up_chea += jung_up
+            jung_up = correction.jung_upgrade(correction_text, lst_up)           
             if jung_up != 1 :
                 jong_up = correction.jong_upgrade(correction_text, lst_up)
-                err_up_chea += jong_up
+        
+        err_up_chea = correction.word_upgrade
 
         return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
 
