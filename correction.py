@@ -21,7 +21,7 @@ JUNGSUNG_LIST = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 
             #      0    1     2     3     4     5     6     7     8      9    10    11    12    13    14    15    16    17    18     19     20  
 JONGSUNG_LIST = [' ', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
               #   0    1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20    21    22    23     24    25  26    27
-    
+word_upgrade = []
 def nouns (text) :
     
     test = hannanum.pos(text)
@@ -293,6 +293,7 @@ def cho_upgrade(text, lst) :
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
+                word_upgrade.append(err_upgrade)
                 f.close()
                 return 1
                                     
@@ -456,8 +457,7 @@ def cho_upgrade(text, lst) :
                                 f = open('체언_상세.txt', 'rt', encoding='UTF8')
                                 n_data = f.read()
                                 if fix in n_data :
-                                        #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
-                                        err_lst.append(fix)
+                                        #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))                                       
                                         f.close()
                                     
                                     #break  # 여기서 break 하면 하나만 추출 함
@@ -475,7 +475,6 @@ def cho_upgrade(text, lst) :
                              #   a+=1
     
                 #print(fix)
-    return err_lst
 
 def jung(text, lst) :
     err_lst = []
@@ -757,6 +756,7 @@ def jung_upgrade(text, lst) :
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
+                word_upgrade.append(err_upgrade)
                 f.close()
                 return 1
         
@@ -1010,7 +1010,6 @@ def jung_upgrade(text, lst) :
                                     
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
-    return err_lst
 
 def jong(text, lst) :
     err_lst = []
@@ -1192,6 +1191,7 @@ def jong_upgrade(text, lst) :
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
+                word_upgrade.append(err_upgrade)
                 f.close()
                 return 1
         
@@ -1347,7 +1347,6 @@ def jong_upgrade(text, lst) :
                                     
                                         #break  # 여기서 break 하면 하나만 추출 함
                                     #print(fix) # 바꿔보며 출력
-    return err_lst
 
 def cho_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
@@ -1987,6 +1986,8 @@ def case2(text) :
         jung_upgrade(text, lst)
         if jung_upgrade(text, lst) != 1:
             jong_upgrade(text, lst)
+
+
 
 def case_up(lst_case, n_case) :
     lst = n_case
