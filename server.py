@@ -42,7 +42,7 @@ def BR():
 @app.route("/FIX", methods=['GET', 'POST'])
 def FIX():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('fix.html')
     if request.method == 'POST':
         target_text = str(request.form['FIX'])
         lst = correction.nouns_case(target_text)
@@ -65,7 +65,7 @@ def FIX():
         
         err_up_chea = correction.word_upgrade
 
-        return render_template('index.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
+        return render_template('fix.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
 
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():
