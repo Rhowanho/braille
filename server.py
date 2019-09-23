@@ -3,8 +3,10 @@ import Han2B , B2Han, SaveTheImage, TTS, correction
 import os
 import shutil
 app = Flask(__name__)
-
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
+def main():
+    return render_template('main.html')
+@app.route("/H2B", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
         return render_template('index.html')
@@ -30,14 +32,14 @@ def index():
 @app.route("/B2H", methods=['GET', 'POST'])
 def BR():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('main.html')
     if request.method == 'POST':
         # 파라미터를 전달 받습니다.
         BR_list= str(request.form['min_temp'])
 
         Hangul = B2Han.text(BR_list)
     
-        return render_template('index.html', price=Hangul)
+        return render_template('main.html', price=Hangul)
 
 @app.route("/FIX", methods=['GET', 'POST'])
 def FIX():
@@ -70,7 +72,7 @@ def FIX():
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('tts.html')
     if request.method == 'POST':
         String= str(request.form['mp3'])
         path = "speech/"
@@ -81,6 +83,6 @@ def gTTS():
         TTS.TTS(String)
         #TTS.Playing(String)
         #os.remove('C:/Users/tjaud/Documents/motor/Flask/Speech/'+String+'.mp3') 
-        return render_template('index.html', speech = mp3file)
+        return render_template('tts.html', speech = mp3file)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5000, debug = True)
