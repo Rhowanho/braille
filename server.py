@@ -65,7 +65,7 @@ def FIX():
         
         err_up_chea = correction.word_upgrade
 
-        return render_template('fix.html', num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
+        return render_template('fix.html', FIX = target_text, num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
 
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():
