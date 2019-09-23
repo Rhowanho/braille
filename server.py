@@ -3,9 +3,12 @@ import Han2B , B2Han, SaveTheImage, TTS, correction
 import os
 import shutil
 app = Flask(__name__)
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def main():
-    return render_template('main.html')
+    if request.method == 'GET':
+        return render_template('main.html')
+    if request.method == 'POST':
+        return render_template('main.html')
 @app.route("/H2B", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
