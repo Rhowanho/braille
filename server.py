@@ -58,10 +58,10 @@ def FIX():
         cho_up = correction.cho_upgrade(correction_text, lst_up)
         err_up_chea = cho_up
         
-        if len(cho_up) != 1 :
+        if cho_up != 1 :
             jung_up = correction.jung_upgrade(correction_text, lst_up)
             err_up_chea += jung_up
-            if len(jung_up) != 1 :
+            if jung_up != 1 :
                 jong_up = correction.jong_upgrade(correction_text, lst_up)
                 err_up_chea += jong_up
 

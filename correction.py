@@ -36,7 +36,7 @@ def nouns (text) :
                 app1 += test1[k]
             n.append(app1)
 
-    f = open("체언_상세.txt", 'r')
+    f = open('체언_상세.txt', 'rt', encoding='UTF8')
     n_data = f.read()
     n_err = []
     count = 0
@@ -69,7 +69,7 @@ def nouns_case (text) :
                 app1 += test1[k]
             n.append(app1)
 
-    f = open("체언_상세.txt", 'r', encoding='utf-8')
+    f = open('체언_상세.txt', 'rt', encoding='UTF8')
     n_data = f.read()
     count = 0
     
@@ -249,7 +249,7 @@ def cho(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
                             n_data = f.read()
                             if fix in n_data :
                                     #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e+1, err, fix))
@@ -283,11 +283,13 @@ def cho_upgrade(text, lst) :
         
         word = ""
         
+        
+        #print(text)
         err = str(text[lst[e]]) # 다음 반복문을 위함
         err_upgrade = err[:-1]
         
         if len(err_upgrade) >= 2 :
-            f = open("체언_상세.txt", 'r')
+            f = open('체언_상세.txt', 'rt', encoding='UTF8')
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
@@ -451,7 +453,7 @@ def cho_upgrade(text, lst) :
                                 fix += word[p]
                         
                             if len(fix) == len(err_upgrade) :
-                                f = open("체언_상세.txt", 'r')
+                                f = open('체언_상세.txt', 'rt', encoding='UTF8')
                                 n_data = f.read()
                                 if fix in n_data :
                                         #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
@@ -724,7 +726,9 @@ def jung(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
+
+
                             n_data = f.read()
                             if fix in n_data :
                                     #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err, fix))
@@ -749,7 +753,7 @@ def jung_upgrade(text, lst) :
         fix = ""
         
         if len(err_upgrade) >= 2 :
-            f = open("체언_상세.txt", 'r')
+            f = open('체언_상세.txt', 'rt', encoding='UTF8')
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
@@ -997,7 +1001,7 @@ def jung_upgrade(text, lst) :
                                 fix += word[p]
                         
                             if len(fix) == len(err_upgrade) :
-                                f = open("체언_상세.txt", 'r')
+                                f = open('체언_상세.txt', 'rt', encoding='UTF8')
                                 n_data = f.read()
                                 if fix in n_data :
                                         print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
@@ -1159,7 +1163,7 @@ def jong(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
                             n_data = f.read()
                             if fix in n_data :
                                 #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err, fix))
@@ -1184,7 +1188,7 @@ def jong_upgrade(text, lst) :
         err_upgrade = err[:-1]    
         
         if len(err_upgrade) >= 2 :
-            f = open("체언_상세.txt", 'r')
+            f = open('체언_상세.txt', 'rt', encoding='UTF8')
             n_data = f.read()
             if err_upgrade in n_data :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
@@ -1334,7 +1338,7 @@ def jong_upgrade(text, lst) :
                                 fix += word[p]
                         
                             if len(fix) == len(err_upgrade) :
-                                f = open("체언_상세.txt", 'r')
+                                f = open('체언_상세.txt', 'rt', encoding='UTF8')
                                 n_data = f.read()
                                 if fix in n_data :
                                     #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
@@ -1509,7 +1513,7 @@ def cho_filter(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
                             n_data = f.read()
                             if fix in n_data :
                                     print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err, fix))
@@ -1782,7 +1786,7 @@ def jung_filter(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
                             n_data = f.read()
                             if fix in n_data :
                                     print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err, fix))
@@ -1944,7 +1948,7 @@ def jong_filter(text, lst) :
                             fix += word[p]
                     
                         if len(fix) == len(err) :
-                            f = open("체언_상세.txt", 'r')
+                            f = open('체언_상세.txt', 'rt', encoding='UTF8')
                             n_data = f.read()
                             if fix in n_data :
                                 print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err, fix))
@@ -1984,7 +1988,7 @@ def case2(text) :
         if jung_upgrade(text, lst) != 1:
             jong_upgrade(text, lst)
 
-def case_up(n_case, lst_case) :
+def case_up(lst_case, n_case) :
     lst = n_case
     err_text = lst_case
     lst = cho_filter(err_text, lst)
