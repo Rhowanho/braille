@@ -22,6 +22,7 @@ JUNGSUNG_LIST = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 
 JONGSUNG_LIST = [' ', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
               #   0    1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20    21    22    23     24    25  26    27
 word_upgrade = []
+primary = ""
 def nouns (text) :
     
     test = hannanum.pos(text)
@@ -87,6 +88,7 @@ def nouns_case (text) :
 def cho(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     err_lst = []
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -257,7 +259,7 @@ def cho(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                
+                                    primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
                           
@@ -279,6 +281,7 @@ def cho_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     #print(lst)
     err_lst = []
+    global primary
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -457,7 +460,8 @@ def cho_upgrade(text, lst) :
                                 f = open('체언_상세.txt', 'rt', encoding='UTF8')
                                 n_data = f.read()
                                 if fix in n_data :
-                                        #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))                                       
+                                        #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
+                                        primary = primary.replace(err_upgrade, fix, 1)                                       
                                         f.close()
                                     
                                     #break  # 여기서 break 하면 하나만 추출 함
@@ -479,6 +483,7 @@ def cho_upgrade(text, lst) :
 def jung(text, lst) :
     err_lst = []
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -735,6 +740,7 @@ def jung(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
+                                    primary = primary.replace(err, fix, 1)
                                 
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
@@ -742,6 +748,7 @@ def jung(text, lst) :
 
 def jung_upgrade(text, lst) :
     err_lst = []
+    global primary
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
@@ -1006,6 +1013,7 @@ def jung_upgrade(text, lst) :
                                 if fix in n_data :
                                         print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
                                         err_lst.append(fix)
+                                        primary = primary.replace(err_upgrade, fix, 1)
                                         f.close()
                                     
                                     #break  # 여기서 break 하면 하나만 추출 함
@@ -1013,6 +1021,7 @@ def jung_upgrade(text, lst) :
 
 def jong(text, lst) :
     err_lst = []
+    global primary
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
@@ -1171,14 +1180,15 @@ def jong(text, lst) :
                                     lst.remove(e)
 
                                 f.close()
-                                
+                                primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
-                                print(fix) # 바꿔보며 출력
+                                #print(fix) # 바꿔보며 출력
     return err_lst
 
 def jong_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     err_lst = []
+    global primary
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -1343,6 +1353,7 @@ def jong_upgrade(text, lst) :
                                 if fix in n_data :
                                     #print("%d번째 체언 오류 의심단어 수정 %s -> %s" %(e, err_upgrade, fix))
                                     err_lst.append(fix)
+                                    primary = primary.replace(err_upgrade, fix, 1)
                                     f.close()
                                     
                                         #break  # 여기서 break 하면 하나만 추출 함
@@ -1350,6 +1361,7 @@ def jong_upgrade(text, lst) :
 
 def cho_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1519,7 +1531,7 @@ def cho_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                
+                                    primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
                           
@@ -1539,6 +1551,7 @@ def cho_filter(text, lst) :
 
 def jung_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1792,13 +1805,14 @@ def jung_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                
+                                    primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
     return lst
 
 def jong_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1955,7 +1969,7 @@ def jong_filter(text, lst) :
                                     lst.remove(e)
 
                                 f.close()
-                                
+                                primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                                 print(fix) # 바꿔보며 출력
     return lst
