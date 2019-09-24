@@ -266,17 +266,18 @@
           <!--Grid column-->
           <div class="col-lg-6 col-md-12 px-4">
 
-            <p class="h5 text-center mb-4" style="font-family: 'Nanum Barun Gothic'"> 점역 문장 확인</p>
+            <p class="h3 text-center mb-5" style="font-family: 'Nanum Barun Gothic'"> 점역 문장 확인</p>
             {% if True %}
-              <h5 class="text-center mt-3"> {{ price }} </h5>
-              <h5 class="text-center mt-3"> 입력한 문장 : {{FIX}} </b></h5>
-              <h5 class="text-center mt-3"> 구문 분석 결과 다음과 같으며 체언 오류 의심은 {{ num }}개 입니다. </b></h5>
-              <h5 class="text-center mt-3"> 의심되는 문장 리스트 : {{ lst_error }} </b></h5>
-              <h5 class="text-center mt-3"> 체언의 예상 오류 수정 : {{ chea_error }} </b></h5>
-              <h5 class="text-center mt-3"> 체언 오류의 조사 혹은 용언을 삭제 후 오류 보정을 시행합니다 </b></h5>
-              <h5 class="text-center mt-3"> {{ chea_up_error }} </b></h5>
-              <h5 class="text-center mt-3"> 최종 문장 </b></h5>
-              <h5 class="text-center mt-3"> {{ result }} </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> {{ price }} </h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> 입력 문장 : {{FIX}} </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> 구문 분석 결과 체언 오류 의심 개수 : {{ num }}개 </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> 의심되는 문장 리스트 : {{ lst_error }} </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> 체언의 수정 가능 단어 : {{ chea_error }} </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> 체언 오류의 조사 ,용언 삭제 후 오류 보정 시행 </b></h5>
+              <h5 class="text-center mt-3"style="font-family: 'Nanum Barun Gothic'"> {{ chea_up_error }} </b></h5>
+
+              <h2 class="text-center mt-3"  style="font-family: 'Nanum Barun Gothic'"> 최종 문장 </b></h5>
+              <h5 class="text-center mt-3"  style="font-family: 'Nanum Barun Gothic'"> {{ result }} </b></h5>
             {% endif %}
           <!--/Grid column-->   
         </div>
