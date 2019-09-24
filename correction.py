@@ -1361,7 +1361,7 @@ def jong_upgrade(text, lst) :
 
 def cho_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-    global primary
+    
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1531,7 +1531,7 @@ def cho_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    primary = primary.replace(err, fix, 1)
+                                    
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
                           
@@ -1551,7 +1551,7 @@ def cho_filter(text, lst) :
 
 def jung_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-    global primary
+    
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1805,14 +1805,14 @@ def jung_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    primary = primary.replace(err, fix, 1)
+                                    
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
     return lst
 
 def jong_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-    global primary
+    
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         r_lst = []
         word = ""
@@ -1969,7 +1969,7 @@ def jong_filter(text, lst) :
                                     lst.remove(e)
 
                                 f.close()
-                                primary = primary.replace(err, fix, 1)
+                                
                                     #break  # 여기서 break 하면 하나만 추출 함
                                 print(fix) # 바꿔보며 출력
     return lst
