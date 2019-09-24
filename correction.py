@@ -1204,7 +1204,7 @@ def jong_upgrade(text, lst) :
                 print("%d번째 의심단어 조사 혹은 용언 오류!\n%s" %(e, err_upgrade))
                 word_upgrade.append(err_upgrade)
                 f.close()
-                return 1
+                
         
         if len(err_upgrade) >= 2 and len(err_upgrade) <= 4 :
         
@@ -1359,6 +1359,7 @@ def jong_upgrade(text, lst) :
                                     
                                         #break  # 여기서 break 하면 하나만 추출 함
                                     #print(fix) # 바꿔보며 출력
+    return primary
 
 def cho_filter(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
@@ -2005,6 +2006,7 @@ def case2(text) :
 
 
 def case_up(lst_case, n_case) :
+    global primary
     lst = n_case
     err_text = lst_case
     lst = cho_filter(err_text, lst)
