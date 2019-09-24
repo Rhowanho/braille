@@ -63,14 +63,14 @@ def FIX():
         lst_up = correction.case_up(correction_text, lst)
 
         cho_up = correction.cho_upgrade(correction_text, lst_up)
-
+        jong_up = ""
         if cho_up != 1 :
             jung_up = correction.jung_upgrade(correction_text, lst_up)           
             if jung_up != 1 :
                 jong_up = correction.jong_upgrade(correction_text, lst_up)
         
         err_up_chea = correction.word_upgrade
-        last = correction.primary
+        last = jong_up
         return render_template('fix.html', FIX = target_text, num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea, result = last)
 
 @app.route("/TTS", methods=['GET', 'POST'])
