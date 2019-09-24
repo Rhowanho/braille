@@ -88,7 +88,7 @@ def nouns_case (text) :
 def cho(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     err_lst = []
-    global primary
+
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -259,7 +259,7 @@ def cho(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    primary = primary.replace(err, fix, 1)
+                                    
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
                           
@@ -281,7 +281,7 @@ def cho_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     #print(lst)
     err_lst = []
-    global primary
+
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -483,7 +483,7 @@ def cho_upgrade(text, lst) :
 def jung(text, lst) :
     err_lst = []
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-    global primary
+
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -740,7 +740,7 @@ def jung(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    primary = primary.replace(err, fix, 1)
+                                    
                                 
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
@@ -748,7 +748,7 @@ def jung(text, lst) :
 
 def jung_upgrade(text, lst) :
     err_lst = []
-    global primary
+
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
@@ -1021,7 +1021,7 @@ def jung_upgrade(text, lst) :
 
 def jong(text, lst) :
     err_lst = []
-    global primary
+
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
@@ -1180,7 +1180,7 @@ def jong(text, lst) :
                                     lst.remove(e)
 
                                 f.close()
-                                primary = primary.replace(err, fix, 1)
+                                
                                     #break  # 여기서 break 하면 하나만 추출 함
                                 #print(fix) # 바꿔보며 출력
     return err_lst
@@ -1188,7 +1188,7 @@ def jong(text, lst) :
 def jong_upgrade(text, lst) :
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     err_lst = []
-    global primary
+
     for e in range(0, len(lst)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -1531,7 +1531,7 @@ def cho_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    
+                                    primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
                           
@@ -1805,7 +1805,7 @@ def jung_filter(text, lst) :
                                     if e in lst :
                                         lst.remove(e)
                                     f.close()
-                                    
+                                    primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                             #print(fix) # 바꿔보며 출력
     return lst
@@ -1969,7 +1969,7 @@ def jong_filter(text, lst) :
                                     lst.remove(e)
 
                                 f.close()
-                                
+                                primary = primary.replace(err, fix, 1)
                                     #break  # 여기서 break 하면 하나만 추출 함
                                 print(fix) # 바꿔보며 출력
     return lst
