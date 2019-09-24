@@ -53,6 +53,7 @@ def FIX():
         lst = correction.nouns_case(target_text)
         num_error = len(lst)
         correction.word_upgrade = []
+        correction.primary = ""
         correction_text = correction.nouns(target_text)
         cho = correction.cho(correction_text, lst)
         jung = correction.jung(correction_text, lst)
@@ -69,8 +70,8 @@ def FIX():
                 jong_up = correction.jong_upgrade(correction_text, lst_up)
         
         err_up_chea = correction.word_upgrade
-
-        return render_template('fix.html', FIX = target_text, num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea )
+        last = correction.primary
+        return render_template('fix.html', FIX = target_text, num = num_error, lst_error = correction_text, chea_error = err_chea, chea_up_error = err_up_chea, result = last)
 
 @app.route("/TTS", methods=['GET', 'POST'])
 def gTTS():

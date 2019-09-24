@@ -760,7 +760,7 @@ MATCH_H2B_ABB = {
     u'읊': [[0,1,1,1,0,1],[0,1,0,0,1,1]],
     u'읋': [[0,1,1,1,0,1],[0,0,1,0,1,1]],
 
-    u'자': [0,0,0,1,0,1],
+    u'자': [[0,0,0,1,0,1]],
     u'작': [[0,0,0,1,0,1],[1,0,0,0,0,0]],
     u'잒': [[0,0,0,1,0,1],[1,0,0,0,0,0],[1,0,0,0,0,0]],
     u'잓': [[0,0,0,1,0,1],[1,0,0,0,0,0],[0,0,1,0,0,0]],
@@ -1285,6 +1285,8 @@ def letter(hangul_letter):
 
 def text(hangul_sentence):
     result = []
+    cnt1 = 0
+    check = 0
     check_point = False
     split_data = hangul_sentence.split(' ')
     split_data1 = []
@@ -1327,23 +1329,24 @@ def text(hangul_sentence):
             else:
                 continue
                 
-    #리스트를 검사하면서 리스트이면 그대로 집어넣고
+    #리스트를 검사하면서 리스트이면 그대로 집어넣고)
     for word in split_data1:
         if(isinstance(word,list)):
             new_split_data.append(word)
             if(check_space[check_space_index] == 0):
                 new_split_data.append([[0,0,0,0,0,0]])
-                check_space_index = check_space_index + 1
+            check_space_index = check_space_index + 1
         elif(word == ''):
             continue
         else:
             #그렇지 않으며면 ABB, 17항에 걸리는 지 확인후에 new_split_data에 삽입
             for index in range(len(word)):
-                #print(letter(word[index + 1]))
                 if(word[index] in MATCH_H2B_ABB):
                     if(word[index] in seventeen):
                         if(index + 1== len(word)):
                             new_split_data.append([MATCH_H2B_ABB[word[index]]])
+                        elif(len(letter(word[index + 1])) == 0):
+                            new_split_data.append(letter(word[index]))
                         elif(letter(word[index + 1])[0] in MATCH_H2B_JOONG.values()):
                             new_split_data.append(letter(word[index]))
                         else:
@@ -1381,6 +1384,7 @@ def datainput(a) :
     for x in b:
         cnt_length = len(x)
         for i in x:
+            
             if(len(i) != 6):
                 cnt_length = cnt_length + len(i) - 1 
             else:
@@ -1420,6 +1424,7 @@ def datainput(a) :
     # 불필요한 , ] 삭제
     # 문자열로 입력받게 되어 모든 문자이 입력되었으므로 필요 정보만 추출
     for i in range(len(test)) :
+        result = test[1 : len(test) : 3]
         test1 = test[1 : len(test) : 3]
     #print("단일문자열리스트로 된 리스트 결과 출력")
     #print("\n\n")
@@ -1433,6 +1438,12 @@ def datainput(a) :
         w += 6*length[i]
         last.append(test1[q : w])
         q=w
-    
-    return last
+    final = []
+    for i in last:
+        if i in '':
+            del i
+        else:
+            final.append(i)
+            
+    return final
 

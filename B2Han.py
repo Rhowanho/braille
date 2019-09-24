@@ -1329,16 +1329,35 @@ def text(String):
                     new_data.append(MATCH_H2B_CHO[i])
             else:
                 new_data.append(MATCH_H2B_CHO[i])
-        elif i in MATCH_H2B_JOONG:                
-            if(data[index-1] not in MATCH_H2B_CHO):
-                new_data.append("ㅇ")
-            new_data.append(MATCH_H2B_JOONG[i])
-        elif i in MATCH_H2B_JONG:
-            if(data[index+1] in MATCH_H2B_JONG):
-                new_data.append(MATCH_H2B_JONG[i+data[index + 1]])
-                check = True
+                
+                
+        elif i in MATCH_H2B_JOONG:      
+            if(index == (len(data)-1)):
+                if(data[index-1] not in MATCH_H2B_CHO):
+                    new_data.append("ㅇ")
+                new_data.append(MATCH_H2B_JOONG[i])
             else:
-                new_data.append(MATCH_H2B_JONG[i])
+                if(data[index-1] not in MATCH_H2B_CHO):
+                    new_data.append("ㅇ")
+                    #new_data.append(MATCH_H2B_JOONG[i])
+                if(i+data[index+1] in MATCH_H2B_JOONG):
+                    check = True
+                    new_data.append(MATCH_H2B_JOONG[i+data[index + 1]])
+                    index = index + 1
+                    continue
+               #else:
+                new_data.append(MATCH_H2B_JOONG[i])
+            
+        elif i in MATCH_H2B_JONG:
+            if(index+1 != len(data)):
+                if(data[index+1] in MATCH_H2B_JONG):
+                    new_data.append(MATCH_H2B_JONG[i+data[index + 1]])
+                    check = True
+                else:
+                    new_data.append(MATCH_H2B_JONG[i])
+            else:
+                    new_data.append(MATCH_H2B_JONG[i])
+                    
         elif i is '':
             del i
         else:
