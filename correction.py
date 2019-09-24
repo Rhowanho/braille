@@ -22,9 +22,11 @@ JUNGSUNG_LIST = ['ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 
 JONGSUNG_LIST = [' ', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
               #   0    1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20    21    22    23     24    25  26    27
 word_upgrade = []
+
 primary = ""
+
 def nouns (text) :
-    
+    global primary
     test = hannanum.pos(text)
     n = []
     #print(test)
@@ -56,6 +58,7 @@ def nouns (text) :
 #n_err = nouns("가귀 고쇠 남배 선퓽기 여러가지 구구마 낙공 오글 ")
 
 def nouns_case (text) :
+    global primary
     lst = []
     
     test = hannanum.pos(text)
@@ -86,6 +89,7 @@ def nouns_case (text) :
     return lst
 
 def cho(text, lst) :
+    global primary
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     err_lst = []
 
@@ -484,7 +488,7 @@ def cho_upgrade(text, lst) :
 def jung(text, lst) :
     err_lst = []
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
-
+    global primary
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
         word = ""
@@ -1022,7 +1026,7 @@ def jung_upgrade(text, lst) :
 
 def jong(text, lst) :
     err_lst = []
-
+    global primary
     #n_err = nouns("구구마 가귀 고쇠 남배 선퓽기 여러가지 낙공 오글")
     for e in range(0, len(text)): # 에러 단어 개수만큼 반복
         
@@ -1977,6 +1981,7 @@ def jong_filter(text, lst) :
     return lst
 
 def case2(text) :
+    global primary
     lst = []
     # 함수 내 print(lst) 실행하면 몇개의 체언 오류 발생 홗인
     lst = nouns_case(text)
@@ -2005,8 +2010,9 @@ def case2(text) :
 
 
 
-def case_up(lst_case, n_case) :
+def case_up(text, lst_case, n_case) :
     global primary
+    primary = text
     lst = n_case
     err_text = lst_case
     lst = cho_filter(err_text, lst)
@@ -2014,3 +2020,4 @@ def case_up(lst_case, n_case) :
     lst = jong_filter(err_text, lst)
     
     return lst
+
